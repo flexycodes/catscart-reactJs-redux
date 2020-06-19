@@ -11,3 +11,85 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.title-page {
+  background: #767a7d;
+  margin: 20px 0;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: left
+}
+
+.shop-details-content .price {
+  margin-bottom: 12px;
+  margin-top: 15px;
+}
+
+.shop-details-content ul {
+  padding: 0;
+  margin: 0;
+}
+.shop-details-content .price ul li {
+  display: inline-block;
+  font-size: 50px;
+  color: #0c59db;
+  margin-right: 18px;
+}
+.shop-details-content .price ul li:last-child {
+  color: #bfc7d3;
+  text-decoration: line-through;
+}
+
+.cart-calculator-wrapper {
+  margin-top: 0px;
+  background-color: #f8f8f8;
+}
+
+.cart-calculator-wrapper h3 {
+  color: #222222;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 27px 15px 25px;
+  margin-bottom: 0;
+}
+
+.cart-calculator-wrapper .cart-calculate-items {
+  font-weight: 500;
+}
+
+.cart-calculator-wrapper .cart-calculate-items .table {
+  margin-bottom: 0;
+}
+
+.cart-calculator-wrapper .cart-calculate-items .table tr td {
+  color: #444444;
+  padding: 15px 20px;
+}
+
+.cart-calculator-wrapper .cart-calculate-items .table tr td:nth-child(2) {
+  color: #444444;
+  text-align: right;
+}
+
+.cart-calculator-wrapper .cart-calculate-items .table tr td.total-amount {
+  color: #d8373e;
+  font-weight: 700;
+}
+
+.cart-calculator-wrapper a.sqr-btn {
+  border-radius: 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 40px;
+  border: none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #d8373e !important;
+  padding: 0 20px;
+  text-transform: uppercase;
+  display: inline-block;
+}

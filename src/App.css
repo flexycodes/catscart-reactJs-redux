@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -35,4 +35,115 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.bg-gray {
+  background-color: #e1e1e1;
+}
+
+.bg-soft-black {
+  background: #202020;
+}
+
+.bg-black {
+  background: #444444;
+}
+
+.c-red {
+  background: red;
+}
+
+.c-gray {
+  background: gray;
+}
+
+.c-blue {
+  background: blue;
+}
+
+.c-brown {
+  background: brown;
+}
+
+.c-black {
+  background: black;
+}
+
+/* -------- footer widget end -------- */
+/*------ footer bootom start -------*/
+.footer-bottom-wrap {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -ms-flex-pack: space-between;
+}
+
+@media only screen and (max-width: 767px) {
+  .footer-bottom-wrap {
+      display: block;
+      text-align: center;
+  }
+}
+
+.footer-bottom-wrap .copyright-text p {
+  color: #404040;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.footer-bottom-wrap .copyright-text p a {
+  color: #d8373e;
+}
+
+.footer-bottom-wrap .copyright-text p a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 479px) {
+  .footer-bottom-wrap .copyright-text p {
+      font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .footer-bottom-wrap .copyright-text {
+      -webkit-flex-basis: 100%;
+      -moz-flex-basis: 100%;
+      -ms-flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .footer-bottom-wrap .payment-method-img {
+      -webkit-flex-basis: 100%;
+      -moz-flex-basis: 100%;
+      -ms-flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+      margin-top: 10px;
+  }
+}
+.pb-20 {
+  padding-bottom: 20px!important;
+}
+.pt-20 {
+  padding-top: 20px!important;
+}
+.copyright-text {
+  margin-top: 12px;
 }
