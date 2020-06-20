@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
+import { connect } from 'react-redux'
+import {addToCart} from "../store/actions/actions"
 
 import { getById } from '../api/products'
 
@@ -21,7 +23,7 @@ function ProductSingle(props) {
     // Change value input And Quantity
     const handleQuantity = useCallback(
         (event) => {
-            const quantity = event.target.value;
+            const quantity = parseInt(event.target.value)
             
             if(quantity < 1)
                 return ;
@@ -29,6 +31,12 @@ function ProductSingle(props) {
         },
         [],
     )
+
+    // Function Add to cart 
+
+    const addToCart = () => {
+        props.addToCart(product, quantity)
+    }
 
     if(loading)
         return 'Loading ..';
@@ -55,6 +63,7 @@ function ProductSingle(props) {
 
                     <input className="form-control" 
                             type="number" 
+                            max={product.stock}
                             value={quantity}
                             onChange={handleQuantity}
                     />
@@ -63,7 +72,8 @@ function ProductSingle(props) {
 
                     <p>Total: {quantity * product.price}$</p>
 
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary"
+                    onClick={addToCart}>
                         Add to Cart
                     </button>
 
@@ -73,4 +83,10 @@ function ProductSingle(props) {
     )
 }
 
-export default ProductSingle
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCart: (productsInfo, quantity) => dispatch(addToCart(productsInfo, quantity))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ProductSingle)

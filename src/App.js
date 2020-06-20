@@ -1,5 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from 'react-redux';
+
+// Store
+import store from './store/store'
 
 import './App.css';
 
@@ -13,25 +17,33 @@ import Products from './pages/Products';
 import Cart from './pages/Cart';
 import ProductSingle from "./pages/ProductSingle";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <div className="container">
-        <Router>
-          {/* Header */}
-          <Header />
+    <Router>
+      <div className="App">
+        <div className="container">
+            {/* Header */}
+            <Header />
 
-          <Route path="/" component={Home} exact />
-          <Route path="/products" component={Products} exact />
-          <Route path="/products/:id" component={ProductSingle} />
-          <Route path="/cart" component={Cart} />
+            <Route path="/" component={Home} exact />
+            <Route path="/products" component={Products} exact />
+            <Route path="/products/:id" component={ProductSingle} />
+            <Route path="/cart" component={Cart} />
 
-          {/* Footer */}
-          <Footer /> 
-        </Router>
+            {/* Footer */}
+            <Footer /> 
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
-export default App;
+const AppwithStore = () => {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  )
+}
+
+export default AppwithStore;
