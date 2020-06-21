@@ -83,10 +83,4 @@ function ProductSingle(props) {
     )
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addToCart: (productsInfo, quantity) => dispatch(addToCart(productsInfo, quantity))
-    }
-}
-
-export default connect(null, mapDispatchToProps)(ProductSingle)
+export default connect(null, {addToCart})(ProductSingle)

@@ -39,10 +39,4 @@ function CartItem(props) {
     )
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        removeFromCart: (index) => dispatch(removeFromCart(index))
-    }
-}
-
-export default connect(null, mapDispatchToProps)(CartItem);
+export default connect(null, {removeFromCart})(CartItem);

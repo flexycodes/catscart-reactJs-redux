@@ -1,29 +1,49 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
+import thunk from 'redux-thunk'
 import cartReducer from './reducers/index'
+import throttle from 'lodash.throttle'
 
-const initialSatet = {
-    cartProducts: [
-        {
-            product: {
-                "id": 1,
-                "name": "White Cat",
-                "price": 100,
-                "stock": 5,
-                "image": "/imgs/1.jpg",
-                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the\n          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-            },
-            quantity: 4
+// Get state
+const loadState = () => {
+
+    try {
+        const state = localStorage.getItem('cartProducts');
+        if (state !== null) {
+            return JSON.parse(state)
         }
-
-    ],
-    shipping: 75
+    } catch (error) {}
+    
+    return {
+        cartProducts: []
+    }
 }
 
+// Save State to local storage
+const saveState = (state) => {
+    console.log('save state ..');
+    localStorage.setItem('cartProducts', JSON.stringify(state));  
+}
+
+const appReducers = combineReducers({
+    cartProducts: cartReducer
+})
+
+// Create Store
 const store = createStore(
-    cartReducer, 
-    initialSatet,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    appReducers, 
+    loadState(),
+    compose(
+        applyMiddleware(thunk),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
 )
+
+store.subscribe(
+    throttle(() => {
+        saveState(store.getState())
+    }, 2000)
+)
+
 
 export default store
 

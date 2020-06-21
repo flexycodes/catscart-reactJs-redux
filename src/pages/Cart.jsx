@@ -41,7 +41,7 @@ const reduces = (total, item) => (total + (item.product.price * item.quantity))
 const mapStateToProps = (state) => ({
     cartItems: state.cartProducts,
     subTotal: state.cartProducts.reduce(reduces, 0),
-    shipping: state.shipping
+    shipping: 70
 })
 
 export default connect(mapStateToProps)(Cart)

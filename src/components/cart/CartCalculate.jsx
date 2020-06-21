@@ -10,6 +10,7 @@ const CartCalculate = (props) => {
         // send request to the server
         // clear cart
         props.clearCart()
+        alert('we received your order, and we are working on it.')
     }
 
     return (
@@ -49,10 +50,4 @@ const CartCalculate = (props) => {
     )
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        clearCart: (index) => dispatch(clearCart())
-    }
-}
-
-export default connect(null, mapDispatchToProps)(CartCalculate)
+export default connect(null, {clearCart})(CartCalculate)
